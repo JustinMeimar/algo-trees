@@ -1,25 +1,45 @@
 <script lang="ts">
   import Tree from './lib/Tree.svelte'
-  import Footer from './lib/Footer.svelte'
+  import About from './lib/About.svelte'
+
+  let showAbout = false;
+  const toggleAboutModal = () => {
+    console.log(showAbout);
+    showAbout = !showAbout;
+  }
+
 </script>
 
 <main>
-  <div class="title">
-    <h1>Algo-Trees</h1>
-  </div>
+  <About isVisible={showAbout}></About>
   <Tree></Tree> 
-  <p>&copy; Justin Meimar 2024</p>
+  <div class="footer">
+    <button id="about-btn" on:click={toggleAboutModal}>About</button>
+    <p>&copy; Justin Meimar 2024</p>
+  </div>
 </main>
 
-<style>
-  .title {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-    /* filter: drop-shadow(0 0 2em #169500aa); */
+<style> 
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
   }
-  .title:hover {
-    filter: drop-shadow(0 0 1.5em #0d6500aa);
+  #about-btn {
+    padding: 5px 10px;
+    background-color: #308903;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
   }
+
+  #about-btn:hover {
+      background-color: #0056b3;
+  }
+
 </style>

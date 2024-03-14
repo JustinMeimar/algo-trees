@@ -180,7 +180,7 @@
         }
     }
  
-    let zoomLevel = 3;
+    let zoomLevel = 6;
     let viewBox = {
         x: 0,
         y: 0,
@@ -231,6 +231,7 @@
     }
     
     $: latexString = `T(n) = ${c}T(${m}n)`;
+    $: nString = `n=${n}`;
     $: coefficientLatexString = `c: ${c}`;
     $: fractionLatexString = `m: ${m}`;
     $: nLatexString = `T(${n})`;
@@ -239,6 +240,9 @@
 <div class="project-container">
     <div class="project-latex">
         <Katex math={latexString}/>
+    </div>
+    <div class="n-latex">
+        <Katex math={nString}/>
     </div>
     <div class="project-controls">
         <Katex math={coefficientLatexString}></Katex><input type="range" min="1" max="5" bind:value={c} />
@@ -258,7 +262,7 @@
          on:mouseleave={endDrag}
          on:wheel={handleZoom}
     >
-        <svg width="800" height="600" viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`}>
+        <svg id="tree-svg" width="800" height="650" viewBox={`${viewBox.x} ${viewBox.y} ${viewBox.width} ${viewBox.height}`}>
             {#each lines as line, i}
                 <line 
                     x1={line.p1.x} y1={line.p1.y} 
@@ -268,11 +272,12 @@
         </svg>
     </div> 
 </div>
-<!-- <Footer></Footer> -->
 <style>
+    #tree-svg:hover {
+        cursor: pointer;
+    }
     .tree-container {
         margin: auto;
-        border: 1px solid black;
         width: min-content;
         height: min-content;
         transform-origin: center;
@@ -288,6 +293,10 @@
     .project-latex {
         margin-top: 30px;
         font-size: 28px;
+    }
+    .n-latex {
+        margin-top: 10px;
+        font-size: 24px;
     }
     .project-controls {
         margin: auto;
