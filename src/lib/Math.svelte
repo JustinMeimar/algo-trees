@@ -12,10 +12,8 @@
 <div class="modal-backdrop">
     <div class="modal-content">
         <button class="close-button" on:click={closeModal}>×</button>
-        <h2>Algo Trees!</h2>
- 
-        
-        <h3>About</h3>
+         
+        <h3>Math Explained</h3>
         <div>
             An algo tree uses recurrence relations to generate a graph of nodes representing the value of
             each call. The nodes are stored in a DFS ordering where each is assigned a length based on   
@@ -51,66 +49,11 @@
             <Katex math={'y\'= y + sin(\\theta) * l'}/>
             
         </div> 
-        <br>
-        <h3>Free Variables</h3>
-        <div>
-            <div class='variable'> 
-                <div class='variable-latex'>
-                    <Katex math={'c'}/>:
-                </div>
-                <div class='variable-info'>
-                    The branching factor.
-                </div>
-            </div>
-            
-            <div class='variable'> 
-                <div class='variable-latex'>
-                    <Katex math={'m'}/>:
-                </div>
-                <div class='variable-info'>
-                    recursive multiplier coefficient for inputs 
-                </div>
-            </div>
-            
-            <div class='variable'> 
-                <div class='variable-latex'>
-                    <Katex math={'T(n)'}/>:
-                </div>
-                <div class='variable-info'>
-                    The seed value to start the relation with.
-                </div>
-            </div>
-
-
-            <br>
-
-            By adjusting the stochasticity, the angles at which lines are drawn are 
-            randomly proturbed.
-            
-            
-            branching factor determines 
-            the angle each child line points in and the coefficient m determines 
-            how quickly the relation hits the base case of zero.
-        
-        </div>
-        <!-- Add more about content here -->
     </div>
 </div>
 {/if}
 
 <style>
-    .variable-info {
-        margin-top: 5px;
-    }
-    .variable {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .variable-latex {
-        font-size: 30px;
-        margin-right: 10px;
-    }
     .modal-backdrop {
         position: fixed;
         top: 0;
@@ -139,3 +82,4 @@
         cursor: pointer;
     }
 </style>
+

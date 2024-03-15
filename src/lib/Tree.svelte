@@ -136,8 +136,8 @@
             }
 
             pushRecursiveNode(n, h);
-
-            // Assuming c and m are defined and accessible in your scope
+            
+            // push call frame for each branch given branching factor
             for (let i = 0; i < c; i++) {
                 stack.push({ n: n * m, h: h + 1 });
             }
